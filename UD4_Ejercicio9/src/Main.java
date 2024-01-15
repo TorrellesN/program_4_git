@@ -2,11 +2,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *Crea una clase Libro que modele la información que se mantiene en una biblioteca sobre cada libro:
- * título, autor (usa la clase Persona), ISBN, páginas, edición, editorial, lugar (ciudad y país)
- * y fecha de edición (usa la clase Fecha). La clase debe proporcionar los siguientes servicios:
- * getters y setters, método para leer la información y método para mostrar la información.
- * Este último método mostrará la información del libro con el siguiente formato:
+ *Vamos a crear una colección de libros mejorada.
+ * Utilizaremos la clase Libro y todas las demás necesarias
+ * (si estás trabajando en el mismo proyecto puedes acceder a ellas.
+ * Si no haz una copia en tú proyecto). Vamos a modificar la clase lista de Libros,
+ * que en este caso va a estar definida en una clase llamada ArrayListLibros.
  */
 public class Main {
     public static void main(String[] args) {
@@ -27,6 +27,7 @@ public class Main {
         l2.muestraLibro();
         l1.muestraLibro();
         l3.muestraLibro();
+
 
 
 
