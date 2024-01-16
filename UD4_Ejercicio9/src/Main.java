@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  *Vamos a crear una colección de libros mejorada.
@@ -13,9 +11,11 @@ public class Main {
 
         Persona autor1 = new Persona("Lola", "Montes");
         Persona autor2 = new Persona("Junji", "Ito");
+        Persona autor3 = new Persona("Jorge Luis", "Borges");
 
         Fecha fecha1 = new Fecha("viernes 12", "abril", 2009);
         Fecha fecha2 = new Fecha("jueves 23", "mayo", 2013);
+        Fecha fecha3 = new Fecha("jueves 25", "noviembre", 1916);
 
         Lugar lugar1 = new Lugar("Tokio", "Japón");
         Lugar lugar2 = new Lugar("Rotterdam", "Países Bajos");
@@ -27,6 +27,36 @@ public class Main {
         l2.muestraLibro();
         l1.muestraLibro();
         l3.muestraLibro();
+
+        ArrayListLibros miColeccion = new ArrayListLibros();
+
+        //inserto libros y veo cuántos libros tiene mi coleccion
+        miColeccion.insertar(l1);
+        miColeccion.insertar(l2);
+        miColeccion.insertar(l3);
+        miColeccion.insertar(new Libro ("El Aleph", autor3, "05964", 185, "novena", "Avanta", fecha3, lugar2));
+
+        System.out.println(miColeccion.numLibros());
+
+        //elimino libro y veo cuantos hay en la coleccion
+        miColeccion.eliminarLibro(1);
+        System.out.println(miColeccion.numLibros());
+        miColeccion.mostrarColeccion();
+        miColeccion.insertar(l2);
+
+        //uso del método muestralibro
+        System.out.println("-------- Así funciona el método muestraLibro --------\n");
+        miColeccion.obtenerLibro(3).muestraLibro();
+
+        //busco libros en mi colección
+        int posicion = miColeccion.buscarLibro("Gio");
+        System.out.println("El libro que he encontrado es este: \n");
+        miColeccion.obtenerLibro(posicion).muestraLibro();
+        //en cambio ocurre esto si no encuentro el libro
+        posicion = miColeccion.buscarLibro("La colmena");
+        if (posicion > 0){
+            System.out.println("ese libro no está en la coleccion");
+        }
 
 
 
