@@ -45,6 +45,14 @@ public class ArrayListLibros {
         return -1;
     }
 
+    //implementación de la interfaz Comparator a partir de la clase TituloComparator
+    //De normal usaría collections.sort, pero ArrayList tiene su propios método sort, que se llama "list.sort"
+    public void ordenarPorTitulo (){
+       this.coleccion.sort(new TituloComparator());
+    }
 
+    public void ordenarPorPaginas(){
+        this.coleccion.sort(new PaginasComparator());
+    }
 
 }

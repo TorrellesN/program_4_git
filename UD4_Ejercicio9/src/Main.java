@@ -53,13 +53,21 @@ public class Main {
         System.out.println("El libro que he encontrado es este: \n");
         miColeccion.obtenerLibro(posicion).muestraLibro();
         //en cambio ocurre esto si no encuentro el libro
-        posicion = miColeccion.buscarLibro("La colmena");
-        if (posicion > 0){
+        System.out.println("Si busco un libro que no está en la colección:");
+        int posicion2 = miColeccion.buscarLibro("Holi");
+        if (posicion2 < 0){
             System.out.println("ese libro no está en la coleccion");
         }
 
+        //Ordeno la colección por título
+        System.out.println("Colección ordenada por título: ");
+        miColeccion.ordenarPorTitulo();
+        miColeccion.mostrarColeccion();
 
-
+        //Ordeno la coleccion por n. de páginas
+        System.out.println("Colección ordenada por páginas");
+        miColeccion.ordenarPorPaginas();
+        miColeccion.mostrarColeccion();
 
 
 
