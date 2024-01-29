@@ -2,6 +2,9 @@
 public class Main {
     public static void main(String[] args) {
 
+        //metemos miembros en el equipo
+
+
 
     }
 }
