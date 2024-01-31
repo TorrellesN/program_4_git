@@ -9,6 +9,7 @@ public class Competicion {
 
     public Competicion (String nombre){
         this.nombre = nombre;
+        this.miembrosComp = new TreeSet<>();
     }
 
     //meter miembros en competicion
@@ -21,6 +22,7 @@ public class Competicion {
     }
 
     public void listaCompeticion(){
+        System.out.println("\nEquipos de la competición:");
         Iterator<Equipo> it = this.miembrosComp.iterator();
         while (it.hasNext()){
 

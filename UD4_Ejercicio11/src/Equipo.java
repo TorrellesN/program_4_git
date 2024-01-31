@@ -11,19 +11,13 @@ public class Equipo implements Comparable<Equipo>{
         this.nombre = nombre;
         this.email = email;
         this.n_miembros = 0;
+        this.miembros = new HashSet<>();
     }
 
 
     //getters y setters
 
 
-    public HashSet<Alumno> getMiembros() {
-        return miembros;
-    }
-
-    public void setMiembros(HashSet<Alumno> miembros) {
-        this.miembros = miembros;
-    }
 
     public String getNombre() {
         return nombre;
@@ -41,23 +35,19 @@ public class Equipo implements Comparable<Equipo>{
         this.email = email;
     }
 
-    public int getN_miembros() {
-        return n_miembros;
-    }
-
-    public void setN_miembros(int n_miembros) {
-        this.n_miembros = n_miembros;
-    }
 
 
     // añade miembro
     public void addMiembro (Alumno miembro){
-        miembros.add(miembro);
+        this.miembros.add(miembro);
+        this.n_miembros ++;
     }
     //elimina un miembro introduciendo el objeto
     public void removeMiembro (Alumno miembro){
 
         miembros.remove(miembro);
+        this.n_miembros --;
+
     }
 
     //elimina un miembro introduciendo su dni
@@ -65,21 +55,35 @@ public class Equipo implements Comparable<Equipo>{
         for (Alumno a : this.miembros){
             if (a.getDni() == dni){
                 this.miembros.remove(a);
+                this.n_miembros --;
+
             }
         }
     }
 
     //no permite duplicados del equipo en la competicion
     // comparando con equals el nombre
-    public boolean equals(Object obj){
-        if (obj instanceof Equipo){
-            Equipo o1 = (Equipo)obj;
-            if(o1.nombre.equals(this.nombre)){
-                return true;
-            }
+    //NO HACE FALTA: TREESET COMPARA CON COMPARETO
+    //@Override
+    /*public boolean equals(Object obj){
+        if (!(obj instanceof Equipo)){
+            return false;
+        }
+        Equipo o1 = (Equipo)obj;
+        if(o1.nombre.equals(this.nombre)){
+            return true;
         }
         return false;
+    }*/
+
+    //METODO PARA LISTAR MIEMBROS EQUIPO
+    public void imprimirMiembros (){
+        System.out.println("Miembros de " + this.nombre);
+        for (Alumno m : this.miembros){
+            System.out.println(m);
+        }
     }
+
     @Override
     public int compareTo(Equipo o) {
         return this.nombre.compareTo(o.nombre);

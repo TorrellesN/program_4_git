@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Alumno {
 
     private String centroEducativo;
@@ -47,20 +49,26 @@ public class Alumno {
     //comparara con equals para que los alumnos se entiendan por duplicados
     // solo si tienen el mismo dni pero no el mismo nombre o apellido
 
+    @Override
+    public int hashCode() {
+        return this.dni.hashCode();
+    }
 
     @Override
     public boolean equals(Object obj){
-        if (obj instanceof Alumno){
-            Alumno o1 = (Alumno)obj;
-            if(o1.dni.equals(this.dni)){
-                return true;
-            }
+        if (!(obj instanceof Alumno)){
+            return false;
+        }
+        Alumno alumno = (Alumno)obj;
+
+        if(this.dni.equals(alumno.getDni())){
+            return true;
         }
         return false;
     }
 
     @Override
     public String toString() {
-        return this.nombre + "\n";
+        return this.nombre;
     }
 }
